@@ -5,17 +5,17 @@ from tkinter import filedialog, messagebox
 import threading
 
 def timestamp():
-    return datetime.now().strftime('%d %H:%M:%S')
+    return datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
 def on_press(key):
-    frame.insert(f'{timestamp()} [{key}] + '"\n")
+    label.config(text=key)
+    frame.insert("end", f'{timestamp()} : [{key}] - pressed\n')
+    frame.see("end")
 
 def on_release(key):
-    frame.insert(f'{timestamp()} [{key}] - released')
+    frame.insert("end", f'{timestamp()} [{key}] - released\n')
     if key == keyboard.Key.esc:
         return False
-
-
 
 #-----------------------------tkinter----------------------------------
 root = tk.Tk()
