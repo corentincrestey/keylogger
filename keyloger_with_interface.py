@@ -9,11 +9,11 @@ def timestamp():
 
 def on_press(key):
     label.config(text=key)
-    frame.insert("end", f'{timestamp()} : [{key}] - pressed\n')
+    frame.insert("end", f'{timestamp()} [{key}] - [pressed]\n')
     frame.see("end")
 
 def on_release(key):
-    frame.insert("end", f'{timestamp()} [{key}] - released\n')
+    frame.insert("end", f'{timestamp()} [{key}] - [released]\n')
     if key == keyboard.Key.esc:
         return False
 
@@ -35,4 +35,4 @@ def listener():
         listener.join()
 
 threading.Thread(target=listener, daemon=True).start()
-root.mainloop()
+root.mainloop() 
